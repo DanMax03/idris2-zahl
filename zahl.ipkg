@@ -1,0 +1,16 @@
+package zahl
+
+brief = "Inductive integer type"
+
+authors = "Daniil Maksimov"
+
+license = "Apache-2.0"
+
+-- packages to add to search path
+-- depends =
+
+modules = Data.Zahl
+
+sourcedir = "src"
+builddir = ".build"
+
