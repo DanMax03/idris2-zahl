@@ -24,7 +24,7 @@ public export
 Num Zahl where
   Zero + b = b
   a + Zero = a
-  (Pos p1) + (Pos p2) = Pos (S p1 + S p2)
+  (Pos p1) + (Pos p2) = Pos (S p1 + p2)
   (Pos p1) + (Neg q2) = case compare p1 q2 of
                              LT => Neg (q2 `minus` S p1)
                              EQ => Zero
@@ -33,20 +33,20 @@ Num Zahl where
                              LT => Pos (p2 `minus` S q1)
                              EQ => Zero
                              GT => Neg (q1 `minus` S p2)
-  (Neg q1) + (Neg q2) = Neg (S q1 + S q2)
+  (Neg q1) + (Neg q2) = Neg (S q1 + q2)
 
   Zero * b = Zero
   a * Zero = Zero
-  (Pos p1) * (Pos p2) = Pos (S p1 * S p2)
-  (Pos p1) * (Neg q2) = Neg (S p1 * S q2)
-  (Neg q1) * (Pos p2) = Neg (S q1 * S p2)
-  (Neg q1) * (Neg q2) = Pos (S q1 * S q2)
+  (Pos p1) * (Pos p2) = Pos (S p1 * p2 + p1)
+  (Pos p1) * (Neg q2) = Neg (S p1 * q2 + p1)
+  (Neg q1) * (Pos p2) = Neg (S q1 * p2 + q1)
+  (Neg q1) * (Neg q2) = Pos (S q1 * q2 + q1)
 
   fromInteger x = if x == 0
                      then Zero
                      else if x > 0
                              then Pos (fromInteger (x - 1))
-                             else Neg (fromInteger (x + 1))
+                             else Neg (fromInteger (-x - 1))
 
 public export
 Neg Zahl where
