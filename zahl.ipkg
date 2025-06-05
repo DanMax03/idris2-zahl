@@ -10,6 +10,7 @@ license = "Apache-2.0"
 -- depends =
 
 modules = Data.Zahl
+        , Data.Zahl.Decidable
 
 sourcedir = "src"
 builddir = ".build"
