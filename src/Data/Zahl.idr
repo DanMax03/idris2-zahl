@@ -121,3 +121,34 @@ public export
 Cast Zahl String where
   cast = show
 
+----------------------------------------
+--                Sign                --
+----------------------------------------
+
+public export
+data IsZero : Zahl -> Type where
+  ItIsZero : IsZero Zero
+
+public export
+data IsPos : Zahl -> Type where
+  ItIsPos : IsPos (Pos n)
+
+public export
+data IsNeg : Zahl -> Type where
+  ItIsNeg : IsNeg (Neg n)
+
+public export
+isZero : Zahl -> Bool
+isZero Zero = True
+isZero _ = False
+
+public export
+isPos : Zahl -> Bool
+isPos (Pos _) = True
+isPos _ = False
+
+public export
+isNeg : Zahl -> Bool
+isNeg (Neg _) = True
+isNeg _ = False
+
